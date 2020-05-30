@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://click_button.gd" type="Script" id=1]
+[ext_resource path="res://letter_spriteframes.tres" type="SpriteFrames" id=2]
+
+[node name="Square" type="Button"]
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 5, 2 )
+scale = Vector2( 1, 0.708333 )
+frames = ExtResource( 2 )
+speed_scale = 0.0
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+[connection signal="mouse_entered" from="." to="." method="_on_Square_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Square_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_Node2D_pressed"]
